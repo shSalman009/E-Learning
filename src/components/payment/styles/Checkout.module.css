@@ -1,0 +1,14 @@
+.checkout {
+    width: 800px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 25px;
+}
+.head {
+    margin: 40px 0px;
+}
+.head h4 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}

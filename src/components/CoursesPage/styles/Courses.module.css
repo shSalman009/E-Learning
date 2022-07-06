@@ -1,0 +1,38 @@
+.courses {
+    flex: 9;
+    text-align: center;
+}
+.items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.invalid {
+    font-size: 45px;
+    font-weight: 600;
+    color: gray;
+    letter-spacing: 1px;
+    word-spacing: 6px;
+}
+
+/* Meida Query */
+
+@media screen and (max-width: 768px) {
+    .items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 578px) {
+    .items {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0px 30px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .items {
+        margin: 0px;
+    }
+}

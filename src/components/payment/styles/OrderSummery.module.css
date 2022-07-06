@@ -1,0 +1,18 @@
+.summery {
+}
+.summery h4 {
+    margin: 0;
+}
+.summery > h4 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+}
+.total h4 {
+    font-weight: 600;
+}

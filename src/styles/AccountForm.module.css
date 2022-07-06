@@ -1,0 +1,28 @@
+.form {
+    width: 50%;
+    margin: 0px auto;
+    padding: 50px;
+    margin-top: 50px;
+}
+.buttons {
+}
+.buttons button {
+}
+.footer {
+    margin: 20px 0px;
+}
+.footer span {
+}
+.footer span a {
+    color: blue;
+    font-weight: 600;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 992px) {
+    .form {
+        width: 100%;
+        text-align: center;
+    }
+}

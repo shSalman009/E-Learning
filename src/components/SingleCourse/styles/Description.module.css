@@ -1,0 +1,157 @@
+.description {
+    flex: 8 1;
+    padding: 50px 25px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.title {
+    background: var(--black);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0px;
+}
+.title h2 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.des {
+    margin: 60px 0px;
+}
+.des h4 {
+    font-weight: 600;
+}
+.des p {
+    font-size: 18px;
+    color: #222;
+    line-height: 35px;
+}
+
+.whatWeLearn {
+    margin: 50px 0px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.head {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.whatWeLearn h4 {
+    font-weight: 600;
+}
+.whatWeLearn ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+    row-gap: 10px;
+}
+.whatWeLearn ul li {
+    display: flex;
+    gap: 10px;
+}
+.whatWeLearn ul li p {
+    font-size: 17px;
+    color: #444;
+    line-height: 25px;
+    flex: 10;
+}
+.whatWeLearn ul li svg {
+    flex: 2;
+}
+
+.requirements {
+    margin: 50px 0px;
+}
+.requirements h4 {
+    margin-bottom: 20px;
+}
+.requirements ul {
+    list-style: disc;
+}
+.requirements ul li {
+    padding: 10px 0px;
+}
+
+.courseContent {
+}
+
+.collapseItem {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #777;
+    line-height: 30px;
+}
+
+.teacher {
+    margin: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 40px;
+    gap: 15px;
+    border: 1px solid #999999;
+}
+
+.teacher .imgWrapper {
+    border-radius: 2px;
+    overflow: hidden;
+}
+.teacher .imgWrapper img {
+    max-width: 100%;
+}
+.teacher .about {
+    text-align: center;
+}
+.teacher .name {
+    font-size: 25px;
+    font-weight: 600;
+}
+.teacher .skills {
+}
+.teacher .skills p {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+.teacher .bottom {
+}
+.teacher .bottom p {
+    font-size: 17px;
+    line-height: 27px;
+    color: #666;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 1400px) {
+    .whatWeLearn ul {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0;
+    }
+}
+@media screen and (max-width: 992px) {
+    .whatWeLearn {
+        padding: 20px 0px;
+    }
+    .whatWeLearn ul {
+        column-gap: 0px;
+        row-gap: 10px;
+    }
+    .whatWeLearn ul li {
+        display: flex;
+        gap: 5px;
+    }
+    .whatWeLearn ul li p {
+        font-size: 17px;
+        color: #444;
+        line-height: 25px;
+        flex: 10;
+    }
+    .whatWeLearn ul li svg {
+        flex: 2;
+    }
+}

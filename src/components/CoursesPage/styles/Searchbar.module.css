@@ -1,0 +1,40 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+    align-items: center;
+    border-bottom: 1px solid #999999;
+}
+.main h4 {
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+.search {
+    display: flex;
+    width: 400px;
+    height: 50px;
+    background: #fff;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #999999;
+}
+.search input {
+    border: none;
+    width: 90%;
+    height: 100%;
+    outline: none;
+    font-size: 20px;
+    padding-left: 10px;
+    font-weight: 300;
+}
+.search div {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search div img {
+    max-width: 100%;
+}

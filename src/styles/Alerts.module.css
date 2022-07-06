@@ -1,0 +1,8 @@
+.alertWrapper {
+    position: fixed;
+    width: 400px;
+    top: 100px;
+    left: calc(50% - 200px);
+    text-align: center;
+    z-index: 9999;
+}

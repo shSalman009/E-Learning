@@ -1,0 +1,126 @@
+.teachers {
+    background-color: #fff;
+    padding: 50px 0px;
+}
+.main {
+    overflow: hidden;
+}
+.heads {
+    text-align: center;
+}
+
+.items {
+    margin: 100px 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding: 20px;
+}
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2.5px 4.33px 30px 0 rgb(64 87 191 / 20%);
+    border-radius: 5px;
+    padding-top: 110px;
+    margin: 10px 0px;
+    height: 440px;
+}
+.imgWrapper {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: -75px;
+}
+.imgWrapper img {
+    max-width: 100%;
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.body h4 {
+    font-size: 22px;
+    padding: 0px 15px;
+}
+.body h5 {
+    padding: 0px 15px;
+    font-weight: 400;
+    font-size: 19px;
+}
+.body p {
+    color: #777;
+    padding: 0px 16px;
+    font-size: 15px;
+    margin: 10px 0px;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.body button {
+    padding: 6px 20px;
+    border-radius: 5px;
+    margin: 0px 10px;
+    border: none;
+    background: transparent;
+    box-shadow: 2.5px 4.33px 30px 0 rgb(64 87 191 / 20%);
+    font-weight: 600;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 1200px) {
+    .items {
+        gap: 20px;
+        padding: 10px;
+    }
+    .item {
+        gap: 10px;
+        padding: 5px;
+        position: relative;
+        padding-top: 80px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .items {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 100px;
+        padding: 10px;
+    }
+    .item {
+        padding: 50px;
+        height: auto;
+        padding-top: 80px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .items {
+        padding: 0px;
+        margin: 0px 30px;
+    }
+    .item {
+        padding: 15px;
+        padding-top: 80px;
+    }
+    .heads {
+        margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .items {
+        padding: 0px;
+        margin: 1px;
+    }
+}

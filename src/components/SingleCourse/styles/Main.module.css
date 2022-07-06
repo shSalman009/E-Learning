@@ -1,0 +1,17 @@
+.main {
+    position: relative;
+    z-index: 99;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 1200px) {
+    .main {
+        flex-direction: column;
+    }
+}
