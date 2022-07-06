@@ -9,9 +9,6 @@ export default function Courses() {
     const [resOne, setResOne] = useState(
         window.matchMedia("(max-width: 992px)").matches
     );
-    const [resTwo, setResTwo] = useState(
-        window.matchMedia("(max-width: 768px)").matches
-    );
 
     const { loading, error, courses } = useCourses();
 
@@ -19,9 +16,6 @@ export default function Courses() {
         window
             .matchMedia("(max-width: 992px)")
             .addEventListener("change", (e) => setResOne(e.matches));
-        window
-            .matchMedia("(max-width: 768px)")
-            .addEventListener("change", (e) => setResTwo(e.matches));
     }, []);
 
     return (

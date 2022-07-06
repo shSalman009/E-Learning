@@ -4,17 +4,14 @@ import { BiCategory } from "react-icons/bi";
 import { BsBookmark } from "react-icons/bs";
 import { FaGraduationCap } from "react-icons/fa";
 import { GrLanguage, GrPersonalComputer } from "react-icons/gr";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import styles from "./styles/Pricing.module.css";
 
 export default function Pricing({ course }) {
     const [times, setTimes] = useState(0);
 
-    const { currentUser } = useAuth();
-    const { handleAddCart, addAlert, loading } = useCart();
-    const navigate = useNavigate();
+    const { handleAddCart, loading } = useCart();
 
     const totalDuration = new Date(times * 1000).toISOString().substr(11, 8);
 
