@@ -1,19 +1,12 @@
+import { ProgressBar } from "react-bootstrap";
 import styles from "./styles/Progress.module.css";
 
-export default function Progress() {
+export default function Progress({ length }) {
+    const count = length === 0 ? 50 : length === 1 && 100;
+
     return (
         <div className={styles.progress}>
-            <div className={styles.wrapper}>
-                <div className={styles.item}>
-                    <p className={styles.one}>user Information</p>
-                    <span>0</span>
-                </div>
-                <div className={styles.step}></div>
-                <div className={styles.item}>
-                    <p className={styles.two}>Payment Details</p>
-                    <span>1</span>
-                </div>
-            </div>
+            <ProgressBar variant="success" now={count} label={`${count}%`} />
         </div>
     );
 }

@@ -147,7 +147,7 @@
     }
 
     .item .one .iconWrapper {
-        justify-content: flex-end;
+        justify-content: center;
     }
     .item .one .imgWrapper {
         justify-content: flex-start;

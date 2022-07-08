@@ -12,7 +12,7 @@ const FormSelect = ({
     touched,
 }) => {
     return (
-        <div className="my-3">
+        <div className="my-1">
             <div>
                 <Select
                     className="basic-single"

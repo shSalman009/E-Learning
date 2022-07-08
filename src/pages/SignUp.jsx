@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import FormInputs from "../components/signup/FormInputs";
 import { useAuth } from "../context/AuthContext";
-import styles from "../styles/AccountForm.module.css";
+import styles from "../styles/FormPage.module.css";
 
 export default function SignUp() {
     const [fail, setFail] = useState(null);

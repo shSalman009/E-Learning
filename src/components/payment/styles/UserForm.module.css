@@ -31,3 +31,13 @@
         gap: 15px;
     }
 }
+@media (max-width: 400px) {
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .buttons button,
+    a {
+        width: 100%;
+    }
+}

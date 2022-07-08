@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Topbar from "../components/Topbar";
-import styles from "../styles/AccountForm.module.css";
+import styles from "../styles/FormPage.module.css";
 import Login from "./LogIn";
 import SignUp from "./SignUp";
 

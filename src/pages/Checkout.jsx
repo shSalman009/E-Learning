@@ -4,6 +4,7 @@ import Progress from "../components/payment/Progress";
 import Stripe from "../components/payment/Stripe";
 import styles from "../components/payment/styles/Checkout.module.css";
 import UserForm from "../components/payment/UserForm";
+import Topbar from "../components/Topbar";
 
 export default function Checkout() {
     const [goNext, setGoNext] = useState(0);
@@ -33,18 +34,27 @@ export default function Checkout() {
     }, [state]);
 
     return (
-        <div className={styles.checkout}>
-            <div className={styles.head}>
-                <h4>Checkout</h4>
+        <>
+            <Topbar />
+            <div className={styles.checkout}>
+                <div className={styles.wrapper}>
+                    <div className={styles.head}>
+                        <h4>Checkout</h4>
 
-                <Progress />
+                        <Progress length={goNext} />
+                    </div>
+
+                    {goNext === 0 ? (
+                        <UserForm next={next} />
+                    ) : (
+                        <Stripe
+                            back={back}
+                            cartItems={cartItems}
+                            oneItems={oneItems}
+                        />
+                    )}
+                </div>
             </div>
-
-            {goNext === 0 ? (
-                <UserForm next={next} />
-            ) : (
-                <Stripe back={back} cartItems={cartItems} oneItems={oneItems} />
-            )}
-        </div>
+        </>
     );
 }

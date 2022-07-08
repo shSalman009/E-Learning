@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { countrys } from "./Countrys";
 import FormSelect from "./FormSelect";
@@ -11,11 +11,10 @@ import FormInputs from "./FormInputs";
 export default function ShippingForm({ next }) {
     const [fail, setFail] = useState(null);
 
-    const navigate = useNavigate();
-    const countryOptions = [
-        { id: "1", value: "india", label: "India" },
-        { id: "2", value: "sri lanka", label: "Sri Lanka" },
-        { id: "3", value: "us", label: "US" },
+    const shippingOption = [
+        { id: "1", value: "free", label: "Free Shipping" },
+        { id: "2", value: "flat", label: "Flat Rate" },
+        { id: "3", value: "local", label: "Loca Pickup" },
     ];
     const formik = useFormik({
         initialValues: {
@@ -25,8 +24,8 @@ export default function ShippingForm({ next }) {
             email: "",
             city: "",
             zipcode: "",
-            country: "",
             shipping: "",
+            country: "",
         },
         validationSchema: yup.object({
             firstname: yup
@@ -172,33 +171,24 @@ export default function ShippingForm({ next }) {
                     }
                 />
 
-                <FormInputs
-                    placeholder="country"
-                    list="suggestions"
+                <FormSelect
+                    label="Country"
+                    options={countrys}
+                    id="country"
                     name="country"
-                    type="text"
-                    value={formik.values.country}
-                    onChange={formik.handleChange}
-                    isInvalid={
-                        formik.errors.country && formik.touched.country
-                            ? true
-                            : false
-                    }
-                    feedback={
-                        formik.errors.country && formik.touched.country
-                            ? formik.errors.country
-                            : null
-                    }
+                    onBlur={() => {
+                        formik.handleBlur({ target: { name: "country" } });
+                    }}
+                    onChange={(option) => {
+                        formik.setFieldValue("country", option.id);
+                    }}
+                    error={formik.errors.country}
+                    touched={formik.touched.country}
                 />
-                <datalist id="suggestions">
-                    {countrys.map((country) => (
-                        <option key={country} value={country} />
-                    ))}
-                </datalist>
 
                 <FormSelect
                     label="Shipping Fee"
-                    options={countryOptions}
+                    options={shippingOption}
                     id="shipping"
                     name="shipping"
                     onBlur={() => {

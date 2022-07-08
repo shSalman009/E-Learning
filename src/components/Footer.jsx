@@ -39,22 +39,38 @@ export default function Footer() {
                             <h5>Follow Us</h5>
                             <div className={styles.links}>
                                 <div>
-                                    <a href="#">
+                                    <a
+                                        href="https://www.facebook.com/profile.php?id=100077283967573"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
                                         <AiFillFacebook />
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="#">
+                                    <a
+                                        href="https://twitter.com/SalmanA40538364"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
                                         <AiFillTwitterSquare />
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="#">
+                                    <a
+                                        href="https://www.linkedin.com/in/salman-ahmed-77682823b/"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
                                         <AiFillLinkedin />
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="#">
+                                    <a
+                                        href="https://github.com/shSalman009"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
                                         <FaGithubSquare />
                                     </a>
                                 </div>
@@ -114,7 +130,13 @@ export default function Footer() {
                         Copyright © 2021 Shah Salman Ahmed All Rights Reserved.
                         Designed by
                     </p>
-                    <a href="">Sh_Salman</a>
+                    <a
+                        target="_blank"
+                        href="https://dazzling-hotteok-2af0ea.netlify.app/"
+                        rel="noreferrer"
+                    >
+                        Sh_Salman
+                    </a>
                 </div>
             </div>
         </div>

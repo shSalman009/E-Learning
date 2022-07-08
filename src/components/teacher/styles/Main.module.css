@@ -98,4 +98,26 @@
         flex-direction: column;
         gap: 0px;
     }
+    .main {
+        padding: 50px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .main {
+        padding: 20px;
+    }
+}
+@media screen and (max-width: 485px) {
+    .courses > a {
+        width: 180px;
+        height: 180px;
+        padding: 5px;
+    }
+}
+@media screen and (max-width: 445px) {
+    .courses > a {
+        width: 220px;
+        height: 220px;
+        padding: 10px;
+    }
 }

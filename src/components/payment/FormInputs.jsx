@@ -11,7 +11,7 @@ export default function FormInputs({
     type,
 }) {
     return (
-        <FormGroup className="my-3">
+        <FormGroup className="my-1">
             <FormControl
                 type={type}
                 name={name}

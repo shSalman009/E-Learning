@@ -3,6 +3,7 @@
 .summery h4 {
     margin: 0;
 }
+
 .summery > h4 {
     font-size: 30px;
     margin-bottom: 30px;
@@ -15,4 +16,12 @@
 }
 .total h4 {
     font-weight: 600;
+}
+@media (max-width: 576px) {
+    .summery {
+        text-align: center;
+    }
+    .summery > h4 {
+        font-size: 26px;
+    }
 }
