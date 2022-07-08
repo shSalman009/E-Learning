@@ -73,25 +73,29 @@
 .card:hover .cardImgWrapper::after {
     background-color: rgba(17, 17, 17, 0.226);
 }
+.buttons {
+}
+.buttons button {
+}
 
+.next,
 .prev {
     position: absolute;
     z-index: 99;
-    left: -50px;
-    top: 50%;
     width: 40px;
     height: 40px;
     border-radius: 3px;
+    border: none;
+    background-color: transparent;
+}
+.prev {
+    left: -50px;
+    top: 50%;
 }
 
 .next {
-    position: absolute;
-    z-index: 99;
     right: -50px;
     top: 50%;
-    border-radius: 3px;
-    width: 40px;
-    height: 40px;
 }
 
 /* Hover */
@@ -99,10 +103,10 @@
 /* Media Query */
 @media screen and (max-width: 1200px) {
     .prev {
-        left: -6px;
+        left: -32px;
     }
     .next {
-        right: -6px;
+        right: -32px;
     }
 }
 
@@ -111,50 +115,22 @@
         padding-top: 350px;
     }
     .prev {
-        display: none;
+        left: 40%;
+        top: 100%;
     }
+
     .next {
-        display: none;
+        right: 40%;
+        top: 100%;
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .prev {
-        display: block;
-
-        left: 20px;
+        left: 30%;
     }
 
     .next {
-        display: block;
-
-        right: 20px;
-    }
-}
-@media screen and (max-width: 460px) {
-    .prev {
-        display: block;
-
-        left: 0px;
-    }
-
-    .next {
-        display: block;
-
-        right: 0px;
-    }
-}
-
-@media screen and (max-width: 460px) {
-    .prev {
-        display: block;
-
-        left: -8px;
-    }
-
-    .next {
-        display: block;
-
-        right: -8px;
+        right: 30%;
     }
 }

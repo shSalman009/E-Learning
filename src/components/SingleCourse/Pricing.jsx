@@ -10,12 +10,9 @@ import styles from "./styles/Pricing.module.css";
 
 export default function Pricing({ course }) {
     const [times, setTimes] = useState(0);
-
     const { handleAddCart, loading } = useCart();
 
     const totalDuration = new Date(times * 1000).toISOString().substr(11, 8);
-
-    // const minutes = Math.floor(seconds / 60);
 
     useEffect(() => {
         course.content.forEach((c) => {
@@ -87,11 +84,11 @@ export default function Pricing({ course }) {
                 <div className={styles.buttons}>
                     {course.price && (
                         <button
-                            disabled={loading}
-                            className={loading ? styles.disabled : undefined}
                             onClick={() => {
                                 handleAddCart(course, 1);
                             }}
+                            disabled={loading}
+                            className={loading ? styles.disabled : undefined}
                         >
                             Add to Cart
                         </button>

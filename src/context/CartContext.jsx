@@ -69,11 +69,10 @@ export default function CartContext({ children }) {
     };
 
     const handleAddCart = async (product, qn) => {
-        setLoading(true);
         if (!currentUser) {
             return navigate("/signup");
         }
-
+        setLoading(true);
         updateQuantity(qn);
         const docRef = doc(
             FireStoreDb,

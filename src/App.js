@@ -2,14 +2,14 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Alerts from "./components/Alerts";
 import Notfound from "./components/Notfound";
 import PrivateRoute from "./components/private_route/PrivateRoute";
+import PublicRoute from "./components/public_route/PublicRoute";
 import { AuthProvider } from "./context/AuthContext";
 import CartContext from "./context/CartContext";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import CoursesPage from "./pages/CoursesPage";
+import FormPage from "./pages/FormPage";
 import Home from "./pages/Home";
-import Login from "./pages/LogIn";
-import SignUp from "./pages/SignUp";
 import SingleCourse from "./pages/SingleCourse";
 import TeacherPage from "./pages/TeacherPage";
 
@@ -28,11 +28,13 @@ export default function App() {
                                 path="/courses/:id"
                                 element={<SingleCourse />}
                             />
-                            <Route path="/signup" element={<SignUp />} />
-                            <Route path="/login" element={<Login />} />
+
                             <Route path="/teacher" element={<TeacherPage />} />
                             <Route path="/notfound" element={<Notfound />} />
-
+                            <Route path="/" element={<PublicRoute />}>
+                                <Route path="/signup" element={<FormPage />} />
+                                <Route path="/login" element={<FormPage />} />
+                            </Route>
                             <Route path="/" element={<PrivateRoute />}>
                                 <Route path="payment" element={<Checkout />} />
                                 <Route path="cart" element={<CartPage />} />

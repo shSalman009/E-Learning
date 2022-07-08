@@ -4,7 +4,6 @@ import { Alert, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import FormInputs from "../components/signup/FormInputs";
-import Topbar from "../components/Topbar";
 import { useAuth } from "../context/AuthContext";
 import styles from "../styles/AccountForm.module.css";
 
@@ -68,93 +67,87 @@ export default function SignUp() {
     });
 
     return (
-        <>
-            <Topbar />
-            <Form className={styles.form} onSubmit={formik.handleSubmit}>
-                <h1 className="my-4">SignUp Here</h1>
-                {fail && <Alert variant="warning">{fail.slice(10)}</Alert>}
-                <FormInputs
-                    placeholder="name"
-                    type="text"
-                    name="userName"
-                    value={formik.values.userName}
-                    onChange={formik.handleChange}
-                    isInvalid={
-                        formik.errors.userName && formik.touched.userName
-                            ? true
-                            : false
-                    }
-                    feedback={
-                        formik.errors.userName && formik.touched.userName
-                            ? formik.errors.userName
-                            : null
-                    }
-                />
-                <FormInputs
-                    placeholder="email"
-                    name="email"
-                    type="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    isInvalid={
-                        formik.errors.email && formik.touched.email
-                            ? true
-                            : false
-                    }
-                    feedback={
-                        formik.errors.email && formik.touched.email
-                            ? formik.errors.email
-                            : null
-                    }
-                />
-                <FormInputs
-                    placeholder="password"
-                    type="password"
-                    name="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    isInvalid={
-                        formik.errors.password && formik.touched.password
-                            ? true
-                            : false
-                    }
-                    feedback={
-                        formik.errors.password && formik.touched.password
-                            ? formik.errors.password
-                            : null
-                    }
-                />
-                <FormInputs
-                    placeholder="confirm password"
-                    name="confirmPassword"
-                    type="password"
-                    value={formik.values.confirmPassword}
-                    onChange={formik.handleChange}
-                    isInvalid={
-                        formik.errors.confirmPassword &&
-                        formik.touched.confirmPassword
-                            ? true
-                            : false
-                    }
-                    feedback={
-                        formik.errors.confirmPassword &&
-                        formik.touched.confirmPassword
-                            ? formik.errors.confirmPassword
-                            : null
-                    }
-                />
-                <div className={styles.buttons}>
-                    <button className="custom-b" type="submit">
-                        SignUp
-                    </button>
-                </div>
-                <div className={styles.footer}>
-                    <span>
-                        Already have an account? <Link to="/login">Login</Link>{" "}
-                        here
-                    </span>
-                </div>
-            </Form>
-        </>
+        <Form className={styles.form} onSubmit={formik.handleSubmit}>
+            <h2 className="my-4">Sign Up</h2>
+            {fail && <Alert variant="warning">{fail.slice(10)}</Alert>}
+            <FormInputs
+                placeholder="name"
+                type="text"
+                name="userName"
+                value={formik.values.userName}
+                onChange={formik.handleChange}
+                isInvalid={
+                    formik.errors.userName && formik.touched.userName
+                        ? true
+                        : false
+                }
+                feedback={
+                    formik.errors.userName && formik.touched.userName
+                        ? formik.errors.userName
+                        : null
+                }
+            />
+            <FormInputs
+                placeholder="email"
+                name="email"
+                type="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                isInvalid={
+                    formik.errors.email && formik.touched.email ? true : false
+                }
+                feedback={
+                    formik.errors.email && formik.touched.email
+                        ? formik.errors.email
+                        : null
+                }
+            />
+            <FormInputs
+                placeholder="password"
+                type="password"
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                isInvalid={
+                    formik.errors.password && formik.touched.password
+                        ? true
+                        : false
+                }
+                feedback={
+                    formik.errors.password && formik.touched.password
+                        ? formik.errors.password
+                        : null
+                }
+            />
+            <FormInputs
+                placeholder="confirm password"
+                name="confirmPassword"
+                type="password"
+                value={formik.values.confirmPassword}
+                onChange={formik.handleChange}
+                isInvalid={
+                    formik.errors.confirmPassword &&
+                    formik.touched.confirmPassword
+                        ? true
+                        : false
+                }
+                feedback={
+                    formik.errors.confirmPassword &&
+                    formik.touched.confirmPassword
+                        ? formik.errors.confirmPassword
+                        : null
+                }
+            />
+            <div className={styles.buttons}>
+                <button className="custom-b" type="submit">
+                    Create Account
+                </button>
+            </div>
+            <div className={styles.footer}>
+                <span>
+                    Already have an account? <Link to="/login">Login</Link>
+                </span>
+            </div>
+        </Form>
     );
 }

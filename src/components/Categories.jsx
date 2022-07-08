@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
 import { Navigation } from "swiper";
@@ -107,11 +107,12 @@ export default function Categories() {
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
+
                             <button className={styles.prev} ref={prev}>
-                                <AiOutlineArrowLeft size={20} />
+                                <MdArrowBackIosNew size={40} />
                             </button>
                             <button className={styles.next} ref={next}>
-                                <AiOutlineArrowRight size={20} />
+                                <MdArrowForwardIos size={40} />
                             </button>
                         </div>
                     </div>
