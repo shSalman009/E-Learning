@@ -55,6 +55,11 @@
     }
 }
 @media screen and (max-width: 576px) {
+    .slider {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
     .left {
         align-items: center;
         text-align: center;

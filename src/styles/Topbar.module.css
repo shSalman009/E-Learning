@@ -43,7 +43,7 @@
     margin: 0;
 }
 .menu {
-    flex: 7;
+    flex: 6;
 }
 .menu ul {
     display: flex;
@@ -60,7 +60,7 @@
     cursor: pointer;
 }
 .account {
-    flex: 2 1;
+    flex: 3 1;
     display: flex;
     gap: 15px;
     justify-content: flex-end;
@@ -74,10 +74,11 @@
     font-size: 20px;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 .account .name h4 {
     margin: 0;
+    white-space: nowrap;
 }
 .account a {
     display: flex;
@@ -151,10 +152,16 @@
 /* Meidia Query */
 @media screen and (max-width: 1078px) {
     .logo h4 {
-        font-size: 26px;
+        font-size: 25px;
     }
     .SecondLogo h4 {
         font-size: 26px;
+    }
+    .logo {
+        gap: 10px;
+    }
+    .menu ul {
+        gap: 0px;
     }
 }
 
@@ -206,6 +213,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .name h4 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 576px) {

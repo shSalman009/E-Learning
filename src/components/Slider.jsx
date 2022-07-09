@@ -24,7 +24,10 @@ export default function Slider() {
                                         instructors are highly experienced and
                                         experts on self fields.
                                     </p>
-                                    <Link to="/courses">
+                                    <Link
+                                        style={{ textAlign: "center" }}
+                                        to="/courses"
+                                    >
                                         <button className="custom-b">
                                             View Our Courses
                                         </button>

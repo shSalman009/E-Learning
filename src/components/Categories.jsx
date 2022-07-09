@@ -53,7 +53,9 @@ export default function Categories() {
                                 slidesPerView={
                                     resThree ? 1 : resTwo ? 2 : resOne ? 3 : 4
                                 }
-                                spaceBetween={30}
+                                spaceBetween={
+                                    resThree ? 10 : resTwo ? 20 : resOne && 30
+                                }
                                 navigation={{
                                     prevEl: prev.current,
                                     nextEl: next.current,

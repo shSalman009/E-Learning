@@ -16,6 +16,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .socialLinks {
     width: 25%;
 }
@@ -186,8 +187,19 @@
         align-items: center;
         gap: 50px;
     }
+    .items > div {
+        width: 80%;
+    }
     .contacts {
         width: auto;
         margin: 0;
+    }
+}
+@media screen and (max-width: 400px) {
+    .items > div {
+        width: 90%;
+    }
+    .footer .copyright a {
+        text-align: center;
     }
 }

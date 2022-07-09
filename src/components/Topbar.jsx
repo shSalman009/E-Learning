@@ -142,7 +142,7 @@ export default function Topbar() {
                     {currentUser ? (
                         <div className={styles.name}>
                             <h4> {currentUser.displayName}</h4>
-                            <FiLogOut onClick={logOut} />
+                            <FiLogOut size={30} onClick={logOut} />
                         </div>
                     ) : (
                         !resTwo && (
