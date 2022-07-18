@@ -1,12 +1,15 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+// import { getDatabase, ref, set } from "firebase/database";
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import styles from "./styles/PaymentForm.module.css";
 
 export default function PaymentForm({ clearCart, price, back }) {
     const [success, setSuccess] = useState(false);
 
-    const { handleClearCart } = useCart();
+    const { handleClearCart, cartItems } = useCart();
+    const { currentUser } = useAuth();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -33,20 +36,20 @@ export default function PaymentForm({ clearCart, price, back }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
             card: elements.getElement(CardElement),
         });
 
-        if (!error) {
-            try {
-                setSuccess(true);
-                clearCart && handleClearCart(false);
-            } catch (err) {
-                console.log(err);
-            }
-        }
+        // const { uid } = currentUser;
+        // const db = getDatabase();
+        // const dataRef = ref(db, `usersCourses/${uid}`);
+        // await set(dataRef, {
+        //     cartItems,
+        // });
+
+        // setSuccess(true);
+        // clearCart && handleClearCart(false);
     };
 
     return (
