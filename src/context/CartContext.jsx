@@ -21,10 +21,8 @@ export const useCart = () => {
 export default function CartContext({ children }) {
     const [cartItems, setCartItems] = useState([]);
     const [quantity, setQuantity] = useState(0);
-    const [isChange, setIsChange] = useState();
     const [addAlert, setAddAlert] = useState(false);
     const [removeAlert, setRemoveAlert] = useState(false);
-    const [changeAlert, setChangeAlert] = useState(false);
     const [removeAllALert, setRemoveAllALert] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -32,75 +30,40 @@ export default function CartContext({ children }) {
 
     const navigate = useNavigate();
 
-    const increment = (id, qty) => {
-        setIsChange(true);
-        const carts = [...cartItems];
-        const cart = cartItems.find((x) => x.id === id);
-        cart.qty += qty;
-        setCartItems(carts);
-        setQuantity((prev) => prev + 1);
-    };
-    const decrement = (id, qty) => {
-        const carts = [...cartItems];
-        const cart = cartItems.find((x) => x.id === id);
-        if (cart.qty > 1) {
-            setIsChange(true);
-            cart.qty -= qty;
-            setCartItems(carts);
-            setQuantity((prev) => prev - 1);
-        }
-    };
-
-    const updateQuantity = async (qty) => {
+    const updateQuantity = async () => {
         const qtyRef = doc(FireStoreDb, "quantity", currentUser.uid);
         const quantitySnap = await getDoc(qtyRef);
         if (quantitySnap.exists()) {
             await setDoc(doc(FireStoreDb, "quantity", currentUser.uid), {
-                quantity: quantitySnap.data().quantity + qty,
+                quantity: quantitySnap.data().quantity + 1,
             });
-            setQuantity(quantitySnap.data().quantity + qty);
+            setQuantity(quantitySnap.data().quantity + 1);
         } else {
             await setDoc(doc(FireStoreDb, "quantity", currentUser.uid), {
-                quantity: qty,
+                quantity: 1,
             });
 
-            setQuantity(qty);
+            setQuantity(1);
         }
     };
 
-    const handleAddCart = async (product, qn) => {
+    const handleAddCart = async (product) => {
         if (!currentUser) {
             return navigate("/signup");
         }
         setLoading(true);
-        updateQuantity(qn);
-        const docRef = doc(
-            FireStoreDb,
-            "cartItems",
-            currentUser.uid + product.id
-        );
-        const docSnap = await getDoc(docRef);
+        updateQuantity();
 
-        if (docSnap.exists()) {
-            const copy = {
-                ...docSnap.data().product,
-                qty: docSnap.data().product.qty + qn,
-            };
-            await setDoc(docRef, {
-                product: copy,
-            });
-        } else {
-            await setDoc(
-                doc(FireStoreDb, "cartItems", currentUser.uid + product.id),
-                {
-                    product,
-                }
-            );
-        }
+        await setDoc(
+            doc(FireStoreDb, "cartItems", currentUser.uid + product.id),
+            {
+                product,
+            }
+        );
+
         setLoading(false);
         setAddAlert(false);
         setRemoveAlert(false);
-        setChangeAlert(false);
         setRemoveAllALert(false);
         setAddAlert(true);
         setTimeout(() => {
@@ -109,7 +72,7 @@ export default function CartContext({ children }) {
         fetchCartItems();
     };
 
-    const handleRemoveCart = async (product) => {
+    const handleRemoveCart = async (product, alert) => {
         // delete product
         await deleteDoc(
             doc(FireStoreDb, "cartItems", currentUser.uid + product.id)
@@ -117,18 +80,19 @@ export default function CartContext({ children }) {
         // update quantity
 
         await setDoc(doc(FireStoreDb, "quantity", currentUser.uid), {
-            quantity: quantity - product.qty,
+            quantity: quantity - 1,
         });
-        fetchQuantity();
-        setAddAlert(false);
-        setRemoveAlert(false);
-        setChangeAlert(false);
-        setRemoveAllALert(false);
-        setRemoveAlert(true);
-        setTimeout(() => {
+        if (alert) {
+            fetchQuantity();
+            setAddAlert(false);
             setRemoveAlert(false);
-        }, 3000);
-        fetchCartItems();
+            setRemoveAllALert(false);
+            setRemoveAlert(true);
+            setTimeout(() => {
+                setRemoveAlert(false);
+            }, 3000);
+            fetchCartItems();
+        }
     };
 
     const handleClearCart = async (para) => {
@@ -151,7 +115,6 @@ export default function CartContext({ children }) {
             if (para) {
                 setAddAlert(false);
                 setRemoveAlert(false);
-                setChangeAlert(false);
                 setRemoveAllALert(false);
                 setRemoveAllALert(true);
                 setTimeout(() => {
@@ -167,38 +130,7 @@ export default function CartContext({ children }) {
             fetchQuantity();
         }
     };
-    const handleSaveEdit = async () => {
-        // set edited cartItems in database
 
-        setIsChange(false);
-        cartItems.forEach(async (product) => {
-            await setDoc(
-                doc(FireStoreDb, "cartItems", currentUser.uid + product.id),
-                {
-                    product,
-                }
-            );
-        });
-        setAddAlert(false);
-        setRemoveAlert(false);
-        setChangeAlert(false);
-        setRemoveAllALert(false);
-        setChangeAlert(true);
-        setTimeout(() => {
-            setChangeAlert(false);
-        }, 3000);
-        // set edited quantity in database
-        await setDoc(doc(FireStoreDb, "quantity", currentUser.uid), {
-            quantity: quantity,
-        });
-    };
-    const handleCancelEdit = async () => {
-        setIsChange(false);
-        // get cartItems
-        fetchCartItems();
-        // get quantity
-        fetchQuantity();
-    };
     const fetchCartItems = async () => {
         const store = [];
         if (currentUser) {
@@ -240,14 +172,8 @@ export default function CartContext({ children }) {
                 handleAddCart,
                 handleRemoveCart,
                 handleClearCart,
-                increment,
-                decrement,
-                handleSaveEdit,
-                handleCancelEdit,
-                isChange,
                 addAlert,
                 removeAlert,
-                changeAlert,
                 removeAllALert,
                 loading,
                 fetchCartItems,

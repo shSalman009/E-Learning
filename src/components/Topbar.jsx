@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
+import { usePurchase } from "../context/PurchaseContext";
 import logo from "../images/logo.png";
 import styles from "../styles/Topbar.module.css";
 
@@ -18,6 +19,8 @@ export default function Topbar() {
     const [resTwo, setResTwo] = useState(
         window.matchMedia("(max-width: 768px)").matches
     );
+
+    const { purchaseItems } = usePurchase();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -131,14 +134,21 @@ export default function Topbar() {
                     )}
                 </div>
                 <div className={styles.account}>
-                    <Link to="/cart">
-                        <div className={styles.badge}>
-                            <p>{currentUser ? quantity : 0}</p>
-                            <div>
-                                <AiOutlineShoppingCart size={30} />
-                            </div>
+                    <div className={styles.yours}>
+                        <h4 onClick={() => navigate("/yourcourse")}>
+                            Your Course
+                            <span>You have {purchaseItems.length} courses</span>
+                        </h4>
+                    </div>
+                    <div
+                        onClick={() => navigate("/cart")}
+                        className={styles.badge}
+                    >
+                        <p>{currentUser ? quantity : 0}</p>
+                        <div>
+                            <AiOutlineShoppingCart size={30} />
                         </div>
-                    </Link>
+                    </div>
                     {currentUser ? (
                         <div className={styles.name}>
                             <h4> {currentUser.displayName}</h4>
