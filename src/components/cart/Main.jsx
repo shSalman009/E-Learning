@@ -11,12 +11,8 @@ export default function Main() {
         handleClearCart,
         cartItems,
         handleRemoveCart,
-        removeCartItem,
         increment,
         decrement,
-        handleSaveEdit,
-        handleCancelEdit,
-        isChange,
     } = useCart();
 
     useEffect(() => {
@@ -40,21 +36,17 @@ export default function Main() {
                                         increment={increment}
                                         decrement={decrement}
                                         handleRemoveCart={handleRemoveCart}
-                                        removeCartItem={removeCartItem}
                                     />
                                 );
                             })
                         ) : (
                             <div className={styles.notFound}>
-                                <h4>Cart item is not here</h4>
+                                <h4>Not Added</h4>
                             </div>
                         )}
 
                         <div className={styles.updateButton}>
                             <button
-                                style={{
-                                    display: `${isChange ? "none" : "block"}`,
-                                }}
                                 disabled={!cartItems.length > 0}
                                 type="button"
                                 onClick={() => {
@@ -63,26 +55,6 @@ export default function Main() {
                                 className="custom-b"
                             >
                                 remove all
-                            </button>
-                            <button
-                                style={{
-                                    display: `${isChange ? "block" : "none"}`,
-                                }}
-                                onClick={handleCancelEdit}
-                                type="button"
-                                className="custom-b"
-                            >
-                                Cancel Change
-                            </button>
-                            <button
-                                style={{
-                                    display: `${isChange ? "block" : "none"}`,
-                                }}
-                                onClick={handleSaveEdit}
-                                type="button"
-                                className="custom-b"
-                            >
-                                Add Change
                             </button>
                         </div>
                     </div>

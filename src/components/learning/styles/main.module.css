@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    margin-top: 60px;
+}
+.main div {
+    padding: 20px;
+}
+.left {
+    flex: 1;
+}
+.right {
+    flex: 4;
+}

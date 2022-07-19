@@ -1,15 +1,20 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import { usePurchase } from "../../context/PurchaseContext";
 import styles from "./styles/PaymentForm.module.css";
 
-export default function PaymentForm({ clearCart, price, back }) {
+export default function PaymentForm({ clearCart, price, back, oneItems }) {
     const [success, setSuccess] = useState(false);
 
-    const { handleClearCart } = useCart();
+    const { handleClearCart, cartItems } = useCart();
+    const { addCartPurchase, addSinglePurchase } = usePurchase();
 
     const stripe = useStripe();
     const elements = useElements();
+
+    const navigate = useNavigate();
 
     const CARD_OPTIONS = {
         iconStyle: "solid",
@@ -41,8 +46,14 @@ export default function PaymentForm({ clearCart, price, back }) {
 
         if (!error) {
             try {
+                if (clearCart) {
+                    await addCartPurchase(cartItems);
+                    handleClearCart(false);
+                } else {
+                    addSinglePurchase(oneItems);
+                }
+
                 setSuccess(true);
-                clearCart && handleClearCart(false);
             } catch (err) {
                 console.log(err);
             }
@@ -71,8 +82,12 @@ export default function PaymentForm({ clearCart, price, back }) {
                     </div>
                 </form>
             ) : (
-                <div>
-                    <h2>BUY SUCCESSFULLY DONE</h2>
+                <div className={styles.success}>
+                    <h2>Congratulatins!</h2>
+                    <h4>You have purchased successfully</h4>
+                    <button className="custom-b" onClick={() => navigate("/")}>
+                        Go Home
+                    </button>
                 </div>
             )}
         </div>

@@ -4,13 +4,14 @@ import { BiCategory } from "react-icons/bi";
 import { BsBookmark } from "react-icons/bs";
 import { FaGraduationCap } from "react-icons/fa";
 import { GrLanguage, GrPersonalComputer } from "react-icons/gr";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import styles from "./styles/Pricing.module.css";
 
-export default function Pricing({ course }) {
+export default function Pricing({ course, carted, purchased }) {
     const [times, setTimes] = useState(0);
     const { handleAddCart, loading } = useCart();
+    const navigate = useNavigate();
 
     const totalDuration = new Date(times * 1000).toISOString().substr(11, 8);
 
@@ -81,27 +82,45 @@ export default function Pricing({ course }) {
                         <p>Yes</p>
                     </div>
                 </div>
-                <div className={styles.buttons}>
-                    {course.price && (
-                        <button
-                            onClick={() => {
-                                handleAddCart(course, 1);
-                            }}
-                            disabled={loading}
-                            className={loading ? styles.disabled : undefined}
+                {purchased ? (
+                    <div className={styles.buttons}>
+                        <button>Enroll Now</button>
+                    </div>
+                ) : (
+                    <div className={styles.buttons}>
+                        {course.price && (
+                            <>
+                                {carted ? (
+                                    <button onClick={() => navigate("/cart")}>
+                                        View in Cart
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            handleAddCart(course);
+                                        }}
+                                        disabled={loading}
+                                        className={
+                                            loading
+                                                ? styles.disabled
+                                                : undefined
+                                        }
+                                    >
+                                        Add to Cart
+                                    </button>
+                                )}
+                            </>
+                        )}
+                        <Link
+                            to={`${course.price ? "/payment" : "/notfound"}`}
+                            state={{ products: course }}
                         >
-                            Add to Cart
-                        </button>
-                    )}
-                    <Link
-                        to={`${course.price ? "/payment" : "/notfound"}`}
-                        state={{ products: course }}
-                    >
-                        <button>
-                            {course.price ? "Buy Now" : "Enroll Now"}
-                        </button>
-                    </Link>
-                </div>
+                            <button>
+                                {course.price ? "Buy Now" : "Enroll Now"}
+                            </button>
+                        </Link>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import Course from "../sub/Course";
 import styles from "./styles/Courses.module.css";
 
@@ -7,7 +8,9 @@ export default function Courses({ courses }) {
             {courses && courses.length > 0 ? (
                 <div className={styles.items}>
                     {courses.map((course) => (
-                        <Course key={course.id} course={course} />
+                        <AnimatePresence>
+                            <Course key={course.id} course={course} />
+                        </AnimatePresence>
                     ))}
                 </div>
             ) : (

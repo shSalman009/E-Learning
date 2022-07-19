@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import OrderSummery from "./OrderSummery";
 import PaymentForm from "./PaymentForm";
 
-const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
+const stripePromise = loadStripe(
+    `${process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}`
+);
 
 export default function Stripe({ cartItems, oneItems, back }) {
     const [total, setTotal] = useState(0);
@@ -30,6 +32,7 @@ export default function Stripe({ cartItems, oneItems, back }) {
 
             <Elements stripe={stripePromise}>
                 <PaymentForm
+                    oneItems={oneItems}
                     back={back}
                     clearCart={cartItems ? true : false}
                     price={cartItems ? total : oneItems && oneItems.price}

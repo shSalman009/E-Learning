@@ -14,6 +14,27 @@
     align-items: center;
 }
 
+.success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+.success h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #777;
+}
+.success h4 {
+    font-size: 22px;
+    color: #333;
+}
+.success button {
+    background-color: var(--orange);
+}
+
 /* Media Query */
 @media (max-width: 400px) {
     .buttons {
