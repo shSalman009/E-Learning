@@ -25,6 +25,8 @@ export default function PurchaseContext({ children }) {
                 }
             );
         });
+
+        fetchPurchaseItems();
     };
     const addSinglePurchase = async (product) => {
         if (cartItems && cartItems.length > 0) {
@@ -33,6 +35,7 @@ export default function PurchaseContext({ children }) {
                     handleRemoveCart(product, false);
                 }
             });
+            fetchPurchaseItems();
         }
 
         await setDoc(
@@ -64,7 +67,12 @@ export default function PurchaseContext({ children }) {
 
     return (
         <Context.Provider
-            value={{ addCartPurchase, purchaseItems, addSinglePurchase }}
+            value={{
+                addCartPurchase,
+                purchaseItems,
+                addSinglePurchase,
+                fetchPurchaseItems,
+            }}
         >
             {children}
         </Context.Provider>

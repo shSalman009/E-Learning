@@ -137,7 +137,7 @@ export default function Topbar() {
                     <div className={styles.yours}>
                         <h4 onClick={() => navigate("/yourcourse")}>
                             Your Course
-                            <span>You have {purchaseItems.length} courses</span>
+                            <span>{purchaseItems.length} courses</span>
                         </h4>
                     </div>
                     <div

@@ -4,8 +4,11 @@
 }
 .head {
 }
-.head h4 {
-    font-size: 30px;
+.head h2 {
+    font-size: 45px;
+    color: #777;
+    font-weight: 600;
+    margin: 50px 0px;
 }
 .items {
     display: grid;

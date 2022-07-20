@@ -4,8 +4,6 @@ import LearnPath from "./LearnPath";
 import styles from "./styles/main.module.css";
 
 export default function Main({ item }) {
-    console.log(item);
-
     return (
         <div className={styles.main}>
             <div className={styles.left}>
