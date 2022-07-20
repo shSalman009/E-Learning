@@ -2,7 +2,7 @@
     display: flex;
     margin-top: 60px;
 }
-.main div {
+.main > div {
     padding: 20px;
 }
 .left {

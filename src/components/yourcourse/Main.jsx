@@ -10,7 +10,7 @@ export default function Main() {
         <div className="container">
             <div className={styles.main}>
                 <div className={styles.head}>
-                    <h4>Your Purchased Courses</h4>
+                    <h2>Your Courses</h2>
                 </div>
                 <div className={styles.items}>
                     {purchaseItems.map((item) => (
