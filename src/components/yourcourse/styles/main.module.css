@@ -1,6 +1,7 @@
 .main {
     margin-top: 100px;
     text-align: center;
+    margin-bottom: 20px;
 }
 .head {
 }
@@ -14,4 +15,17 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
+}
+
+/* Media Query */
+
+@media (max-width: 992px) {
+    .items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 576px) {
+    .items {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

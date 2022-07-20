@@ -32,14 +32,7 @@ export default function App() {
                                         element={<Navigate to="/home" />}
                                     />
                                     <Route path="/home" element={<Home />} />
-                                    <Route
-                                        path="/yourcourse"
-                                        element={<YourCourse />}
-                                    />
-                                    <Route
-                                        path="/learning"
-                                        element={<Learning />}
-                                    />
+
                                     <Route
                                         path="/courses"
                                         element={<CoursesPage />}
@@ -75,6 +68,14 @@ export default function App() {
                                         <Route
                                             path="cart"
                                             element={<CartPage />}
+                                        />
+                                        <Route
+                                            path="yourcourse"
+                                            element={<YourCourse />}
+                                        />
+                                        <Route
+                                            path="learning"
+                                            element={<Learning />}
                                         />
                                     </Route>
                                 </Routes>

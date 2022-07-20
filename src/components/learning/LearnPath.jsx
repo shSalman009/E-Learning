@@ -5,7 +5,6 @@ import styles from "./styles/learnpath.module.css";
 
 export default function LearnPath({ path }) {
     const [active, setActive] = useState(null);
-    console.log(path);
 
     return (
         <div>
