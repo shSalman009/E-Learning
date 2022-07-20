@@ -4,7 +4,7 @@ import { BiCategory } from "react-icons/bi";
 import { BsBookmark } from "react-icons/bs";
 import { FaGraduationCap } from "react-icons/fa";
 import { GrLanguage, GrPersonalComputer } from "react-icons/gr";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import styles from "./styles/Pricing.module.css";
 
@@ -84,7 +84,13 @@ export default function Pricing({ course, carted, purchased }) {
                 </div>
                 {purchased ? (
                     <div className={styles.buttons}>
-                        <button>Enroll Now</button>
+                        <button
+                            onClick={() =>
+                                navigate("/learning", { state: course })
+                            }
+                        >
+                            Enroll Now
+                        </button>
                     </div>
                 ) : (
                     <div className={styles.buttons}>
@@ -111,14 +117,18 @@ export default function Pricing({ course, carted, purchased }) {
                                 )}
                             </>
                         )}
-                        <Link
-                            to={`${course.price ? "/payment" : "/notfound"}`}
-                            state={{ products: course }}
+
+                        <button
+                            onClick={() => {
+                                course.price
+                                    ? navigate("/payment", {
+                                          state: { products: course },
+                                      })
+                                    : navigate("/learning", { state: course });
+                            }}
                         >
-                            <button>
-                                {course.price ? "Buy Now" : "Enroll Now"}
-                            </button>
-                        </Link>
+                            {course.price ? "Buy Now" : "Enroll Now"}
+                        </button>
                     </div>
                 )}
             </div>

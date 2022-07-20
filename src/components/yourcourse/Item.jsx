@@ -17,7 +17,7 @@ export default function Item({ item }) {
                     <h5>{item.title}</h5>
                 </div>
                 <div className={styles.progress}>
-                    <span>50%</span>
+                    <span>00%</span>
                 </div>
             </div>
 

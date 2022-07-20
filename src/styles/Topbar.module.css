@@ -73,34 +73,6 @@
     font-size: 20px;
 }
 
-.yours {
-    margin-right: 50px;
-}
-.yours h4 {
-    position: relative;
-    font-size: 20px;
-    cursor: pointer;
-    border-bottom: 1px dashed black;
-}
-.yours h4 span {
-    content: "Tooltip";
-    position: absolute;
-    background: #444;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 2px;
-    letter-spacing: 1px;
-    z-index: 999;
-    top: 130%;
-    font-size: 20px;
-    left: 50%;
-    cursor: context-menu;
-    transition: 0.4s;
-    opacity: 0;
-    white-space: nowrap;
-    font-size: 15px;
-}
-
 .account .name {
     font-size: 20px;
     display: flex;
@@ -115,11 +87,13 @@
     display: flex;
     align-items: center;
 }
-.account .name svg {
+.name svg {
     cursor: pointer;
 }
-
-.account .badge {
+.badges {
+    display: flex;
+}
+.badge {
     width: 40px;
     height: 40px;
     display: flex;
@@ -129,7 +103,8 @@
     margin: 0px 15px;
     cursor: pointer;
 }
-.account .badge p {
+
+.badge p {
     position: absolute;
     right: -8px;
     top: -5px;

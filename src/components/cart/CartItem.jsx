@@ -24,13 +24,8 @@ export default function CartItem({ item, handleRemoveCart }) {
                     <p>{item.title}</p>
                 </div>
 
-                <div className={styles.threeWrapper}>
-                    <div className={styles.priceWrapper}>
-                        <p>${item.price}.00</p>
-                    </div>
-                    <div className={styles.subTotalWrapper}>
-                        <h4>${item.price * item.qty}.00</h4>
-                    </div>
+                <div className={styles.price}>
+                    <h4>${item.price * item.qty}.00</h4>
                 </div>
             </div>
         </div>

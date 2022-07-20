@@ -33,7 +33,6 @@
 }
 
 .progress {
-    width: 30%;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -50,4 +49,13 @@
     color: #777;
     border-color: #777;
     padding: 5px;
+}
+
+/* Media Query */
+
+@media (max-width: 1200px) {
+    .progress {
+        width: 50px;
+        height: 50px;
+    }
 }

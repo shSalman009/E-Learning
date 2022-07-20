@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsCartCheck, BsCartPlus } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import { TbAlignRight } from "react-icons/tb";
@@ -134,19 +134,24 @@ export default function Topbar() {
                     )}
                 </div>
                 <div className={styles.account}>
-                    <div className={styles.yours}>
-                        <h4 onClick={() => navigate("/yourcourse")}>
-                            Your Course
-                            <span>{purchaseItems.length} courses</span>
-                        </h4>
-                    </div>
-                    <div
-                        onClick={() => navigate("/cart")}
-                        className={styles.badge}
-                    >
-                        <p>{currentUser ? quantity : 0}</p>
-                        <div>
-                            <AiOutlineShoppingCart size={30} />
+                    <div className={styles.badges}>
+                        <div
+                            onClick={() => navigate("/yourcourse")}
+                            className={styles.badge}
+                        >
+                            <p>{currentUser ? purchaseItems.length : 0}</p>
+                            <div>
+                                <BsCartCheck size={30} />
+                            </div>
+                        </div>
+                        <div
+                            onClick={() => navigate("/cart")}
+                            className={styles.badge}
+                        >
+                            <p>{currentUser ? quantity : 0}</p>
+                            <div>
+                                <BsCartPlus size={30} />
+                            </div>
                         </div>
                     </div>
                     {currentUser ? (
