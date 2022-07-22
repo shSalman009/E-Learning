@@ -155,3 +155,8 @@
         flex: 2;
     }
 }
+@media screen and (max-width: 768px) {
+    .description {
+        max-width: 100%;
+    }
+}

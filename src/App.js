@@ -6,6 +6,7 @@ import PublicRoute from "./components/public_route/PublicRoute";
 import ScrollToTop from "./components/ScrollToTop";
 import { AuthProvider } from "./context/AuthContext";
 import CartContext from "./context/CartContext";
+import CommentContext from "./context/CommentContext";
 import PurchaseContext from "./context/PurchaseContext";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
@@ -25,60 +26,71 @@ export default function App() {
                     <AuthProvider>
                         <CartContext>
                             <PurchaseContext>
-                                <Alerts />
-                                <Routes>
-                                    <Route
-                                        path="/"
-                                        element={<Navigate to="/home" />}
-                                    />
-                                    <Route path="/home" element={<Home />} />
+                                <CommentContext>
+                                    <Alerts />
+                                    <Routes>
+                                        <Route
+                                            path="/"
+                                            element={<Navigate to="/home" />}
+                                        />
+                                        <Route
+                                            path="/home"
+                                            element={<Home />}
+                                        />
 
-                                    <Route
-                                        path="/courses"
-                                        element={<CoursesPage />}
-                                    />
-                                    <Route
-                                        path="/courses/:id"
-                                        element={<SingleCourse />}
-                                    />
+                                        <Route
+                                            path="/courses"
+                                            element={<CoursesPage />}
+                                        />
+                                        <Route
+                                            path="/courses/:id"
+                                            element={<SingleCourse />}
+                                        />
 
-                                    <Route
-                                        path="/teacher"
-                                        element={<TeacherPage />}
-                                    />
-                                    <Route
-                                        path="/notfound"
-                                        element={<Notfound />}
-                                    />
-                                    <Route path="/" element={<PublicRoute />}>
                                         <Route
-                                            path="/signup"
-                                            element={<FormPage />}
+                                            path="/teacher"
+                                            element={<TeacherPage />}
                                         />
                                         <Route
-                                            path="/login"
-                                            element={<FormPage />}
-                                        />
-                                    </Route>
-                                    <Route path="/" element={<PrivateRoute />}>
-                                        <Route
-                                            path="payment"
-                                            element={<Checkout />}
+                                            path="/notfound"
+                                            element={<Notfound />}
                                         />
                                         <Route
-                                            path="cart"
-                                            element={<CartPage />}
-                                        />
+                                            path="/"
+                                            element={<PublicRoute />}
+                                        >
+                                            <Route
+                                                path="/signup"
+                                                element={<FormPage />}
+                                            />
+                                            <Route
+                                                path="/login"
+                                                element={<FormPage />}
+                                            />
+                                        </Route>
                                         <Route
-                                            path="yourcourse"
-                                            element={<YourCourse />}
-                                        />
-                                        <Route
-                                            path="learning"
-                                            element={<Learning />}
-                                        />
-                                    </Route>
-                                </Routes>
+                                            path="/"
+                                            element={<PrivateRoute />}
+                                        >
+                                            <Route
+                                                path="payment"
+                                                element={<Checkout />}
+                                            />
+                                            <Route
+                                                path="cart"
+                                                element={<CartPage />}
+                                            />
+                                            <Route
+                                                path="yourcourse"
+                                                element={<YourCourse />}
+                                            />
+                                            <Route
+                                                path="learning"
+                                                element={<Learning />}
+                                            />
+                                        </Route>
+                                    </Routes>
+                                </CommentContext>
                             </PurchaseContext>
                         </CartContext>
                     </AuthProvider>

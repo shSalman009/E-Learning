@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 import { FcCheckmark } from "react-icons/fc";
 import useTeachers from "../../hooks/useTeachers";
+import Comment from "./Comment";
 import styles from "./styles/Description.module.css";
 
 export default function Description({ course }) {
@@ -87,6 +88,7 @@ export default function Description({ course }) {
                             <p>{teacher.description}</p>
                         </div>
                     </div>
+                    <Comment courseId={course.id} />
                 </div>
             )}
         </>
