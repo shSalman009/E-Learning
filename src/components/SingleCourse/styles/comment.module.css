@@ -1,0 +1,134 @@
+.main {
+}
+
+.add {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+.add input {
+}
+
+.avater {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.avater span {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.body {
+}
+.body h4 {
+    margin: 20px 0px;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.comment > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.commentRight {
+}
+.commentRight > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.commentRight h5 {
+    margin: 0;
+    font-weight: 600;
+}
+.commentRight span {
+    color: #777;
+    font-size: 14px;
+}
+.commentRight p {
+    word-break: break-all;
+}
+.icon {
+    justify-self: right;
+    position: relative;
+    cursor: pointer;
+}
+.icon ul {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 5px;
+    border-radius: 2px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    user-select: none;
+    transition: 0.4s ease-in-out;
+}
+.icon ul li {
+    padding: 2px 10px;
+    transition: 0.3s;
+}
+
+.changeForm {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.changeForm input {
+}
+.changeForm div {
+    display: flex;
+    gap: 10px;
+}
+
+/* Hover */
+.icon ul li:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+/* Media Query */
+
+@media (max-width: 576px) {
+    .avater {
+        width: 50px;
+        height: 50px;
+    }
+    .avater span {
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+    }
+    .changeForm {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .comment {
+        align-items: flex-start;
+    }
+    .comment > div {
+        align-items: flex-start;
+    }
+}
