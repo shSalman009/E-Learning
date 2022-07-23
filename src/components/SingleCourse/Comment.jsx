@@ -11,7 +11,7 @@ export default function Comment({ courseId }) {
     const [term2, setTerm2] = useState("");
     const [show, setShow] = useState(null);
     const [edit, setEdit] = useState(null);
-    const [myComments, setMyComment] = useState();
+    const [myComments, setMyComment] = useState([]);
 
     const { currentUser } = useAuth();
     const { addComment, deleteComment, updateComment, comments } = useComment();
@@ -63,6 +63,11 @@ export default function Comment({ courseId }) {
                 <h4>Comments</h4>
 
                 <div className={styles.comments}>
+                    {myComments.length === 0 && (
+                        <div className={styles.noComment}>
+                            <h4>No Comments yet</h4>
+                        </div>
+                    )}
                     {myComments &&
                         myComments
                             .map((comment) => (
@@ -156,8 +161,9 @@ export default function Comment({ courseId }) {
                                                         : "none",
                                             }}
                                         >
-                                            {comment.userId ===
-                                            currentUser.uid ? (
+                                            {currentUser &&
+                                            comment.userId ===
+                                                currentUser.uid ? (
                                                 <>
                                                     <li
                                                         onClick={() =>

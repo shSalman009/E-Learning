@@ -1,6 +1,12 @@
 .main {
 }
-
+.noComment {
+    text-align: center;
+}
+.noComment > h4 {
+    color: #777;
+    font-size: 20px;
+}
 .add {
     width: 100%;
     display: flex;
