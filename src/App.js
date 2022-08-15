@@ -1,4 +1,5 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-loading";
 import Alerts from "./components/Alerts";
 import Notfound from "./components/Notfound";
 import PrivateRoute from "./components/private_route/PrivateRoute";
@@ -19,83 +20,43 @@ import TeacherPage from "./pages/TeacherPage";
 import YourCourse from "./pages/YourCourse";
 
 export default function App() {
-    return (
-        <div className="main">
-            <BrowserRouter>
-                <ScrollToTop>
-                    <AuthProvider>
-                        <CartContext>
-                            <PurchaseContext>
-                                <CommentContext>
-                                    <Alerts />
-                                    <Routes>
-                                        <Route
-                                            path="/"
-                                            element={<Navigate to="/home" />}
-                                        />
-                                        <Route
-                                            path="/home"
-                                            element={<Home />}
-                                        />
+  return (
+    <div className="main">
+      <ScrollToTop>
+        <AuthProvider>
+          <CartContext>
+            <PurchaseContext>
+              <CommentContext>
+                <Alerts />
+                <Routes>
+                  <Route path="/" element={<Navigate to="/home" />} />
+                  <Route path="/home" element={<Home />} />
 
-                                        <Route
-                                            path="/courses"
-                                            element={<CoursesPage />}
-                                        />
-                                        <Route
-                                            path="/courses/:id"
-                                            element={<SingleCourse />}
-                                        />
+                  <Route path="/courses" element={<CoursesPage />} loading />
+                  <Route
+                    path="/courses/:id"
+                    element={<SingleCourse />}
+                    loading
+                  />
 
-                                        <Route
-                                            path="/teacher"
-                                            element={<TeacherPage />}
-                                        />
-                                        <Route
-                                            path="/notfound"
-                                            element={<Notfound />}
-                                        />
-                                        <Route
-                                            path="/"
-                                            element={<PublicRoute />}
-                                        >
-                                            <Route
-                                                path="/signup"
-                                                element={<FormPage />}
-                                            />
-                                            <Route
-                                                path="/login"
-                                                element={<FormPage />}
-                                            />
-                                        </Route>
-                                        <Route
-                                            path="/"
-                                            element={<PrivateRoute />}
-                                        >
-                                            <Route
-                                                path="payment"
-                                                element={<Checkout />}
-                                            />
-                                            <Route
-                                                path="cart"
-                                                element={<CartPage />}
-                                            />
-                                            <Route
-                                                path="yourcourse"
-                                                element={<YourCourse />}
-                                            />
-                                            <Route
-                                                path="learning"
-                                                element={<Learning />}
-                                            />
-                                        </Route>
-                                    </Routes>
-                                </CommentContext>
-                            </PurchaseContext>
-                        </CartContext>
-                    </AuthProvider>
-                </ScrollToTop>
-            </BrowserRouter>
-        </div>
-    );
+                  <Route path="/teacher" element={<TeacherPage />} loading />
+                  <Route path="/notfound" element={<Notfound />} />
+                  <Route path="/" element={<PublicRoute />}>
+                    <Route path="/signup" element={<FormPage />} loading />
+                    <Route path="/login" element={<FormPage />} loading />
+                  </Route>
+                  <Route path="/" element={<PrivateRoute />}>
+                    <Route path="payment" element={<Checkout />} loading />
+                    <Route path="cart" element={<CartPage />} loading />
+                    <Route path="yourcourse" element={<YourCourse />} loading />
+                    <Route path="learning" element={<Learning />} />
+                  </Route>
+                </Routes>
+              </CommentContext>
+            </PurchaseContext>
+          </CartContext>
+        </AuthProvider>
+      </ScrollToTop>
+    </div>
+  );
 }
