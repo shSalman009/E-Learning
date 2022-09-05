@@ -11,25 +11,28 @@ import { useCart } from "../context/CartContext";
 import { usePurchase } from "../context/PurchaseContext";
 
 export default function Home() {
-    const { fetchCartItems, fetchQuantity } = useCart();
-    const { fetchPurchaseItems } = usePurchase();
+  const { fetchCartItems, fetchQuantity } = useCart();
+  const { fetchPurchaseItems } = usePurchase();
 
-    useEffect(() => {
-        fetchCartItems();
-        fetchQuantity();
-        fetchPurchaseItems();
-    }, []);
+  //   const { currentUser } = useAuth();
+  //   console.log(currentUser.uid);
 
-    return (
-        <>
-            <Topbar />
-            <Slider />
-            <About />
-            <Categories />
-            <CoursesSection />
-            <Teachers />
-            <Service />
-            <Footer />
-        </>
-    );
+  useEffect(() => {
+    fetchCartItems();
+    fetchQuantity();
+    fetchPurchaseItems();
+  }, []);
+
+  return (
+    <>
+      <Topbar />
+      <Slider />
+      <About />
+      <Categories />
+      <CoursesSection />
+      <Teachers />
+      <Service />
+      <Footer />
+    </>
+  );
 }
