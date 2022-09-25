@@ -7,6 +7,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
+import { toastSuccess } from "../components/Toast";
 import "../firebase";
 
 const AuthContext = React.createContext();
@@ -43,11 +44,13 @@ export function AuthProvider({ children }) {
     setCurrentUser({
       ...user,
     });
+    toastSuccess("Account Create Successfully");
   };
 
   // login
   const login = async (email, password) => {
     const auth = getAuth();
+    toastSuccess("Login Successfully");
     return await signInWithEmailAndPassword(auth, email, password);
   };
 

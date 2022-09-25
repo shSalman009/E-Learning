@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { Route, Routes } from "react-router-loading";
-import Alerts from "./components/Alerts";
+import { Slide, ToastContainer } from "react-toastify";
 import Notfound from "./components/Notfound";
 import PrivateRoute from "./components/private_route/PrivateRoute";
 import PublicRoute from "./components/public_route/PublicRoute";
@@ -27,7 +27,18 @@ export default function App() {
           <CartContext>
             <PurchaseContext>
               <CommentContext>
-                <Alerts />
+                <ToastContainer
+                  position="top-center"
+                  transition={Slide}
+                  autoClose={20000}
+                  hideProgressBar
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
                 <Routes>
                   <Route path="/" element={<Navigate to="/home" />} />
                   <Route path="/home" element={<Home />} />

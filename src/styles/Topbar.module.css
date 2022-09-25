@@ -1,121 +1,121 @@
 .topbar {
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 9999;
-    background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
 }
 .main {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
 }
 .logo {
-    flex: 3;
-    display: flex;
-    gap: 20px;
-    align-items: center;
+  flex: 3;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 .logo img {
-    width: 45px;
-    cursor: pointer;
+  width: 45px;
+  cursor: pointer;
 }
 .logo h4 {
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin: 0;
-    cursor: pointer;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+  cursor: pointer;
 }
 .SecondLogo {
-    flex: 3;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: space-between;
+  flex: 3;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
 .SecondLogo h4 {
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
 }
 .menu {
-    flex: 6;
+  flex: 6;
 }
 .menu ul {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 .menu ul li {
 }
 .menu ul li a {
-    color: #111;
-    font-size: 20px;
-    text-transform: capitalize;
-    padding: 5px 10px;
-    cursor: pointer;
+  color: #111;
+  font-size: 20px;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 .account {
-    flex: 3 1;
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end;
-    align-items: center;
+  flex: 3 1;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  align-items: center;
 }
 .account h4 {
-    margin: 0;
+  margin: 0;
 }
 .account p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .account .name {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .account .name h4 {
-    margin: 0;
-    white-space: nowrap;
+  margin: 0;
+  white-space: nowrap;
 }
 .account a {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .name svg {
-    cursor: pointer;
+  cursor: pointer;
 }
 .badges {
-    display: flex;
+  display: flex;
 }
 .badge {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: 0px 15px;
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0px 15px;
+  cursor: pointer;
 }
 
 .badge p {
-    position: absolute;
-    right: -8px;
-    top: -5px;
-    background: var(--orange);
-    color: #fff;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  right: -8px;
+  top: -5px;
+  background: var(--orange);
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .account .badge > div {
 }
@@ -123,122 +123,122 @@
 }
 
 .buttons {
-    display: flex;
-    max-width: 200px;
-    gap: 15px;
-    align-items: center;
-    background-color: var(--orange);
-    padding: 0px 10px;
-    border-radius: 3px;
-    color: #fff;
-    transition: 0.4s ease-in-out;
+  display: flex;
+  max-width: 200px;
+  gap: 15px;
+  align-items: center;
+  background-color: var(--orange);
+  padding: 0px 10px;
+  border-radius: 3px;
+  color: #fff;
+  transition: 0.4s ease-in-out;
 }
 .buttons button {
-    padding: 4px 10px;
-    color: #fff;
-    background: transparent;
-    font-size: 16px;
-    border: white;
-    transition: 0.4s ease-in-out;
+  padding: 4px 10px;
+  color: #fff;
+  background: transparent;
+  font-size: 16px;
+  border: white;
+  transition: 0.4s ease-in-out;
 }
 .buttons p {
 }
 /* Hover */
 
 .buttons:hover {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
 .buttons button:hover {
-    color: var(--black);
+  color: var(--black);
 }
 .toggleIcon {
-    cursor: pointer;
-    z-index: 92;
+  cursor: pointer;
+  z-index: 92;
 }
 .yours h4:hover span {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Meidia Query */
 @media screen and (max-width: 1078px) {
-    .logo h4 {
-        font-size: 25px;
-    }
-    .SecondLogo h4 {
-        font-size: 26px;
-    }
-    .logo {
-        gap: 10px;
-    }
-    .menu ul {
-        gap: 0px;
-    }
+  .logo h4 {
+    font-size: 25px;
+  }
+  .SecondLogo h4 {
+    font-size: 26px;
+  }
+  .logo {
+    gap: 10px;
+  }
+  .menu ul {
+    gap: 0px;
+  }
 }
 
 @media screen and (max-width: 992px) {
-    .hide {
-        transform: translateX(100%);
-    }
-    .show {
-        transform: translateX(0);
-    }
-    .shape {
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.174);
-        z-index: 91;
-    }
-    .menu {
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-            rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-        position: fixed;
-        top: 0;
-        right: 0;
-        background-color: #fff;
-        width: 50%;
-        height: 100vh;
-        padding: 30px 40px;
-        z-index: 93;
-        transition: 0.4s ease-in-out;
-    }
-    .menu ul {
-        flex-direction: column;
-        gap: 30px;
-        margin-top: 30px;
-    }
-    .menu ul li {
-        border-bottom: 1px solid rgb(196, 196, 196);
-    }
-    .menu ul li a {
-        padding: 10px 10px;
-        cursor: pointer;
-        display: block;
-    }
-    .buttons {
-        margin: 25px auto;
-    }
+  .hide {
+    transform: translateX(100%);
+  }
+  .show {
+    transform: translateX(0);
+  }
+  .shape {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.174);
+    z-index: 91;
+  }
+  .menu {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    width: 50%;
+    height: 100vh;
+    padding: 30px 40px;
+    z-index: 93;
+    transition: 0.4s ease-in-out;
+  }
+  .menu ul {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .menu ul li {
+    border-bottom: 1px solid rgb(196, 196, 196);
+  }
+  .menu ul li a {
+    padding: 10px 10px;
+    cursor: pointer;
+    display: block;
+  }
+  .buttons {
+    margin: 25px auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .name h4 {
-        display: none;
-    }
+  .name h4 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 576px) {
-    .logo h4 {
-        font-size: 25px;
-        letter-spacing: 0px;
-    }
-    .menu {
-        width: 100%;
-    }
+  .logo h4 {
+    font-size: 25px;
+    letter-spacing: 0px;
+  }
+  .menu {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 500px) {
-    .logo h4 {
-        display: none;
-    }
+  .logo h4 {
+    display: none;
+  }
 }
