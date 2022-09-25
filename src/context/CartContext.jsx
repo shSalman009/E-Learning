@@ -97,11 +97,11 @@ export default function CartContext({ children }) {
         );
       });
       if (para) {
+        toastError("Clear Cart Successfully");
       }
 
       // delete quantity
       await deleteDoc(doc(FireStoreDb, "quantity", currentUser.uid));
-      toastError("Clear Cart Successfully");
       // fetching datas
       fetchCartItems();
       fetchQuantity();
