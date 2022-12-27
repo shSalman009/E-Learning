@@ -13,7 +13,6 @@ export default function Courses() {
 
   const { loading, error, courses } = useCourses();
 
-  console.log(loading, error);
   useEffect(() => {
     window
       .matchMedia("(max-width: 992px)")
@@ -28,8 +27,6 @@ export default function Courses() {
           {error && (
             <div>
               <p className="h2 text-warning">Sorry! Can't load Courses</p>
-
-              {/* <p className="text-danger h5">Something Wrong Happen</p> */}
             </div>
           )}
         </div>

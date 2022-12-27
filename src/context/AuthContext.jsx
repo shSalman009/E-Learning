@@ -7,7 +7,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
-import { toastSuccess } from "../components/Toast";
+import { useNavigate } from "react-router-dom";
+import { toastError, toastSuccess } from "../components/Toast";
 import "../firebase";
 
 const AuthContext = React.createContext();
@@ -20,6 +21,7 @@ export function AuthProvider({ children }) {
   // state
   const [loading, setLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const auth = getAuth();
@@ -34,24 +36,35 @@ export function AuthProvider({ children }) {
   // signUp
   const signUp = async (userName, email, password) => {
     const auth = getAuth();
-    await createUserWithEmailAndPassword(auth, email, password);
-
-    await updateProfile(auth.currentUser, {
-      displayName: userName,
-    });
-
-    const user = auth.currentUser;
-    setCurrentUser({
-      ...user,
-    });
-    toastSuccess("Account Create Successfully");
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        updateProfile(user, {
+          displayName: userName,
+        });
+        setCurrentUser({
+          ...user,
+        });
+        toastSuccess("Account Create Successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        toastError("account creation failed");
+      });
   };
 
   // login
   const login = async (email, password) => {
     const auth = getAuth();
-    toastSuccess("Login Successfully");
-    return await signInWithEmailAndPassword(auth, email, password);
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        toastSuccess("Login Successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        toastError("email or password is incorrect");
+      });
   };
 
   // sign out

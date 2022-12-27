@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
-import { Alert, Form } from "react-bootstrap";
+import { useEffect } from "react";
+import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoadingContext } from "react-router-loading";
 import * as yup from "yup";
@@ -9,8 +9,6 @@ import FormInputs from "./FormInputs";
 import styles from "./styles/FormPage.module.css";
 
 export default function SignUp() {
-  const [fail, setFail] = useState(null);
-
   const loadingContext = useLoadingContext();
 
   const navigate = useNavigate();
@@ -56,13 +54,7 @@ export default function SignUp() {
         .required("confirmPassword is required"),
     }),
     onSubmit: async (values) => {
-      try {
-        setFail(null);
-        await signUp(values.userName, values.email, values.password);
-        navigate("/");
-      } catch (err) {
-        setFail(err.message);
-      }
+      signUp(values.userName, values.email, values.password);
     },
   });
 
@@ -73,7 +65,7 @@ export default function SignUp() {
   return (
     <Form className={styles.form} onSubmit={formik.handleSubmit}>
       <h2 className="my-4">Sign Up</h2>
-      {fail && <Alert variant="warning">{fail.slice(10)}</Alert>}
+
       <FormInputs
         placeholder="name"
         type="text"

@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
-import { Alert, Form, FormControl, FormGroup } from "react-bootstrap";
+import { useEffect } from "react";
+import { Form, FormControl, FormGroup } from "react-bootstrap";
 import Feedback from "react-bootstrap/esm/Feedback";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoadingContext } from "react-router-loading";
@@ -9,8 +9,6 @@ import { useAuth } from "../../context/AuthContext";
 import styles from "./styles/FormPage.module.css";
 
 export default function Login() {
-  const [fail, setFail] = useState(null);
-
   const { login, loading } = useAuth();
 
   const navigate = useNavigate();
@@ -29,13 +27,7 @@ export default function Login() {
       password: yup.string().required("password is required"),
     }),
     onSubmit: async (values) => {
-      try {
-        setFail(null);
-        await login(values.email, values.password);
-        navigate("/");
-      } catch (err) {
-        setFail(err.message);
-      }
+      await login(values.email, values.password);
     },
   });
 
@@ -46,7 +38,7 @@ export default function Login() {
   return (
     <Form className={styles.form} onSubmit={formik.handleSubmit}>
       <h2 className="my-4">Login Here</h2>
-      {fail && <Alert variant="warning">{fail.slice(10)}</Alert>}
+
       <FormGroup className="my-3">
         <FormControl
           type="email"
@@ -80,7 +72,7 @@ export default function Login() {
         </Feedback>
       </FormGroup>
       <div className={styles.buttons}>
-        <button className="custom-b" type="submit">
+        <button disabled={loading} className="custom-b" type="submit">
           Login
         </button>
       </div>
