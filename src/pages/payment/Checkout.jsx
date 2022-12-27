@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLoadingContext } from "react-router-loading";
+import AnimatedPage from "../../components/AnimatedPage";
 import Topbar from "../../components/Topbar";
 import Stripe from "./Stripe";
 import styles from "./styles/Checkout.module.css";
@@ -28,7 +29,7 @@ export default function Checkout() {
   }, [state]);
 
   return (
-    <>
+    <AnimatedPage>
       <Topbar />
       <div className={styles.checkout}>
         <div className={styles.wrapper}>
@@ -39,6 +40,6 @@ export default function Checkout() {
           <Stripe cartItems={cartItems} oneItems={oneItems} />
         </div>
       </div>
-    </>
+    </AnimatedPage>
   );
 }

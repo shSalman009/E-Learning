@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { Navigate } from "react-router-dom";
 import { Route, Routes } from "react-router-loading";
 import { Slide, ToastContainer } from "react-toastify";
@@ -39,30 +40,36 @@ export default function App() {
                   draggable
                   pauseOnHover
                 />
-                <Routes>
-                  <Route path="/" element={<Navigate to="/home" />} />
-                  <Route path="/home" element={<Home />} />
+                <AnimatePresence exitBeforeEnter>
+                  <Routes>
+                    <Route path="/" element={<Navigate to="/home" />} />
+                    <Route path="/home" element={<Home />} />
 
-                  <Route path="/courses" element={<CoursesPage />} loading />
-                  <Route
-                    path="/courses/:id"
-                    element={<SingleCourse />}
-                    loading
-                  />
+                    <Route path="/courses" element={<CoursesPage />} loading />
+                    <Route
+                      path="/courses/:id"
+                      element={<SingleCourse />}
+                      loading
+                    />
 
-                  <Route path="/teacher" element={<TeacherPage />} loading />
-                  <Route path="/notfound" element={<Notfound />} />
-                  <Route path="/" element={<PublicRoute />}>
-                    <Route path="/signup" element={<FormPage />} loading />
-                    <Route path="/login" element={<FormPage />} loading />
-                  </Route>
-                  <Route path="/" element={<PrivateRoute />}>
-                    <Route path="payment" element={<Checkout />} loading />
-                    <Route path="cart" element={<CartPage />} loading />
-                    <Route path="yourcourse" element={<YourCourse />} loading />
-                    <Route path="learning" element={<Learning />} />
-                  </Route>
-                </Routes>
+                    <Route path="/teacher" element={<TeacherPage />} loading />
+                    <Route path="/notfound" element={<Notfound />} />
+                    <Route path="/" element={<PublicRoute />}>
+                      <Route path="/signup" element={<FormPage />} loading />
+                      <Route path="/login" element={<FormPage />} loading />
+                    </Route>
+                    <Route path="/" element={<PrivateRoute />}>
+                      <Route path="payment" element={<Checkout />} loading />
+                      <Route path="cart" element={<CartPage />} loading />
+                      <Route
+                        path="yourcourse"
+                        element={<YourCourse />}
+                        loading
+                      />
+                      <Route path="learning" element={<Learning />} />
+                    </Route>
+                  </Routes>
+                </AnimatePresence>
               </CommentContext>
             </PurchaseContext>
           </CartContext>

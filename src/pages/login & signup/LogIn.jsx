@@ -11,7 +11,8 @@ import styles from "./styles/FormPage.module.css";
 export default function Login() {
   const [fail, setFail] = useState(null);
 
-  const { login } = useAuth();
+  const { login, loading } = useAuth();
+
   const navigate = useNavigate();
 
   const loadingContext = useLoadingContext();

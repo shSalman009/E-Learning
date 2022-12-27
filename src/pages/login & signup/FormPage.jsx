@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import AnimatedPage from "../../components/AnimatedPage";
 import Topbar from "../../components/Topbar";
 import Login from "./LogIn";
 import SignUp from "./SignUp";
@@ -10,7 +11,7 @@ export default function FormPage() {
   const path = location.pathname.split("/").pop();
 
   return (
-    <>
+    <AnimatedPage>
       <Topbar />
       <div className={styles.main}>
         <div className={styles.formWrapper}>
@@ -27,6 +28,6 @@ export default function FormPage() {
           </div>
         </div>
       </div>
-    </>
+    </AnimatedPage>
   );
 }

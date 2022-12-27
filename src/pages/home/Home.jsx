@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import About from "../../components/About";
+import AnimatedPage from "../../components/AnimatedPage";
 import Categories from "../../components/Categories";
 import { default as Courses } from "../../components/Courses";
 import Footer from "../../components/Footer";
@@ -21,7 +22,7 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <AnimatedPage>
       <Topbar />
       <Slider />
       <About />
@@ -30,6 +31,6 @@ export default function Home() {
       <Teachers />
       <Service />
       <Footer />
-    </>
+    </AnimatedPage>
   );
 }
