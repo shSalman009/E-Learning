@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useLoadingContext } from "react-router-loading";
-import Footer from "../components/Footer";
-import Main from "../components/teacher/Main";
-import Topbar from "../components/Topbar";
+import Footer from "../../components/Footer";
+import Topbar from "../../components/Topbar";
+import Main from "./Main";
 
 export default function TeachersPage() {
   const loadingContext = useLoadingContext();

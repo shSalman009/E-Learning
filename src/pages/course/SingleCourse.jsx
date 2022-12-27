@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLoadingContext } from "react-router-loading";
-import Slider from "../components/CoursesPage/Slider";
-import Footer from "../components/Footer";
-import Main from "../components/SingleCourse/Main";
-import Topbar from "../components/Topbar";
-import { useCart } from "../context/CartContext";
-import { usePurchase } from "../context/PurchaseContext";
+import Footer from "../../components/Footer";
+import Slider from "../../components/Slider";
+import Topbar from "../../components/Topbar";
+import { useCart } from "../../context/CartContext";
+import { usePurchase } from "../../context/PurchaseContext";
+import Main from "./Main";
 
 export default function SingleCourse() {
   const [carted, setCarted] = useState(false);

@@ -5,8 +5,8 @@ import Feedback from "react-bootstrap/esm/Feedback";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoadingContext } from "react-router-loading";
 import * as yup from "yup";
-import { useAuth } from "../context/AuthContext";
-import styles from "../styles/FormPage.module.css";
+import { useAuth } from "../../context/AuthContext";
+import styles from "./styles/FormPage.module.css";
 
 export default function Login() {
   const [fail, setFail] = useState(null);

@@ -1,17 +1,21 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLoadingContext } from "react-router-loading";
-import Footer from "../components/Footer";
-import Topbar from "../components/Topbar";
-import Main from "../components/yourcourse/Main";
+import Slider from "./Slider";
+import Footer from "../../components/Footer";
+import Topbar from "../../components/Topbar";
+import Main from "./Main";
 
-export default function YourCourse() {
+export default function CoursesPage() {
   const loadingContext = useLoadingContext();
+
   useEffect(() => {
     loadingContext.done();
   }, []);
+
   return (
     <>
       <Topbar />
+      <Slider />
       <Main />
       <Footer />
     </>

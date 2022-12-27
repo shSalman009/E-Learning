@@ -1,5 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import Course from "../sub/Course";
+import Course from "../../components/sub/Course";
 import styles from "./styles/Courses.module.css";
 
 export default function Courses({ courses }) {

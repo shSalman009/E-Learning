@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLoadingContext } from "react-router-loading";
-import Main from "../components/cart/Main";
-import Footer from "../components/Footer";
-import Topbar from "../components/Topbar";
+import Footer from "../../components/Footer";
+import Topbar from "../../components/Topbar";
+import Main from "./Main";
 
-export default function CartPage() {
+export default function YourCourse() {
   const loadingContext = useLoadingContext();
   useEffect(() => {
     loadingContext.done();

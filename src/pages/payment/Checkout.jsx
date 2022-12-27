@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useLoadingContext } from "react-router-loading";
-import Stripe from "../components/payment/Stripe";
-import styles from "../components/payment/styles/Checkout.module.css";
-import Topbar from "../components/Topbar";
+import Topbar from "../../components/Topbar";
+import Stripe from "./Stripe";
+import styles from "./styles/Checkout.module.css";
 
 export default function Checkout() {
   const [cartItems, setCartItems] = useState(null);

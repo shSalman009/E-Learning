@@ -9,15 +9,15 @@ import { AuthProvider } from "./context/AuthContext";
 import CartContext from "./context/CartContext";
 import CommentContext from "./context/CommentContext";
 import PurchaseContext from "./context/PurchaseContext";
-import CartPage from "./pages/CartPage";
-import Checkout from "./pages/Checkout";
-import CoursesPage from "./pages/CoursesPage";
-import FormPage from "./pages/FormPage";
-import Home from "./pages/Home";
-import Learning from "./pages/Learning";
-import SingleCourse from "./pages/SingleCourse";
-import TeacherPage from "./pages/TeacherPage";
-import YourCourse from "./pages/YourCourse";
+import CartPage from "./pages/cart/CartPage";
+import SingleCourse from "./pages/course/SingleCourse";
+import CoursesPage from "./pages/courses/CoursesPage";
+import Home from "./pages/home/Home";
+import Learning from "./pages/learning/Learning";
+import FormPage from "./pages/login & signup/FormPage";
+import Checkout from "./pages/payment/Checkout";
+import YourCourse from "./pages/purchasedItem/YourCourse";
+import TeacherPage from "./pages/teachers/TeacherPage";
 
 export default function App() {
   return (
