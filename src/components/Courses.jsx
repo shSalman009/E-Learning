@@ -27,6 +27,11 @@ export default function Courses() {
           {error && (
             <div>
               <p className="h2 text-warning">Sorry! Can't load Courses</p>
+<<<<<<< HEAD
+=======
+
+              <p className="text-danger h5">Something Wrong Happen</p>
+>>>>>>> shSalman009-patch-1
             </div>
           )}
         </div>

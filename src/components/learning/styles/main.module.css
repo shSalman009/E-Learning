@@ -1,0 +1,35 @@
+.main {
+    display: flex;
+    margin-top: 60px;
+}
+.main > div {
+    padding: 20px;
+}
+.left {
+    flex: 2;
+}
+.right {
+    flex: 5;
+}
+
+/* Media Query */
+
+@media (max-width: 1200px) {
+    .main > div {
+        padding: 10px;
+    }
+    .left {
+        flex: 3;
+    }
+    .right {
+        flex: 6;
+    }
+}
+@media (max-width: 992px) {
+    .main {
+        flex-direction: column;
+    }
+    .left {
+        order: 1;
+    }
+}
